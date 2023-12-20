@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/quartz
+    username: postgres
+    password:
+  jpa:
+    open-in-view: false
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      # change to 'always' when starting for the first time
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          jobStore:
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+server:
+  port: 9090
